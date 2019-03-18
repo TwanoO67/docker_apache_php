@@ -1,0 +1,22 @@
+#Base Docker
+
+Pour commencer un nouveau projet à partir de cette base:
+
+```
+    mkdir mon_projet
+    git init
+    git remote add base https://github.com/TwanoO67/docker_apache_php.git
+    git remote add origin <mon_nouveau_depot_de_projet>
+    git fetch base
+    git merge base/master
+    git push -u origin master
+
+```
+
+# utilisation
+
+```
+cp .env.example .env
+vi .env
+docker-compose up -d
+```
