@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.4-apache
 
 #Activation des modules apache
 RUN a2enmod rewrite ssl proxy proxy_http headers
@@ -15,18 +15,20 @@ bindfs \
 libmcrypt-dev \
 zlib1g-dev \
 libicu-dev \
+libzip-dev \
+libonig-dev \
 g++ \
 gnupg \
 libxml2-dev \
 libfontconfig \
 libxrender1 \
-mysql-client \
+mariadb-client \
 cron \
 inetutils-ping \
 telnet
 
 #Ajout de PDO & MySQLi
-RUN docker-php-ext-install pdo pdo_mysql mysqli calendar mbstring mcrypt intl pcntl zip soap sockets \
+RUN docker-php-ext-install pdo pdo_mysql mysqli calendar intl pcntl zip sockets \
  && docker-php-ext-enable mysqli
 
 #Changement de timezone
